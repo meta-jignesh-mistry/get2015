@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-public class Assignment2Test {
+public class TypeOfArrayTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -27,11 +27,10 @@ public class Assignment2Test {
 
 	@Test
 	public void test() {
-			
-			Assignment2 assignment2=new Assignment2();
-			int input[]={1,2,3,8,9,3,5,1,0};
-			int expected[]={1,2,3,8,9,5,0};
-			assertArrayEquals(expected,assignment2.removeDuplicates(input));
-		}
+		int inputArray[]={2,5,6,8,9};
+		TypeOfArray tester =new TypeOfArray();
+		assertEquals(1,tester.checkTypeOfArray(inputArray));
+		
+	}
 
 }

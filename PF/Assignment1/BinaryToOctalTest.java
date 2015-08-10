@@ -1,7 +1,5 @@
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-public class Assignment3Test {
+public class BinaryToOctalTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -30,14 +28,9 @@ public class Assignment3Test {
 	@Test
 	public void test() {
 		
-		Assignment3 assignment3 =new Assignment3();
-		int[] a = { 1, 2, 3,2,3,4,5,3,4,2,2,3,4,5,6,7,8,1,2,4,5,6,7,8,9};
-		String s=assignment3.longestSequence(a);		     
-		int b[]={1,2,4,5,6,7,8,9};
-		assertEquals(Arrays.toString(b),s);
+		BinaryToOctal tester=new BinaryToOctal();     // Binary 110101 will give 65 as octal 
+		int octal = tester.convertBinaryToOctal(110101);
+		assertEquals("match",65,octal);
 	}
 
-
 }
-
-

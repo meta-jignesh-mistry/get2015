@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-public class Assignment1Test {
+public class SortingOfTwoArrayTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -19,7 +19,6 @@ public class Assignment1Test {
 
 	@Before
 	public void setUp() throws Exception {
-		 String num ;
 	}
 
 	@After
@@ -27,9 +26,14 @@ public class Assignment1Test {
 	}
 
 	@Test
-	public void test() {
-		Assignment1 tester=new Assignment1();
-		 assertEquals("not match", 65, tester.BinaryToOctal("110101"));
+	public void test6() {
+		
+		SortingOfTwoArray tester=new SortingOfTwoArray();
+		int input1[]={1,2,3};
+		int input2[]={4,5,6};
+		int input3[]=new int[6];
+		int expected[]={1,2,3,4,5,6};
+		assertArrayEquals(expected,tester.join(input1,3,input2,3,input3));
 	}
 
 }

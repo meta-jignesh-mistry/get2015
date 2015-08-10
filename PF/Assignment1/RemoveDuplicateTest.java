@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-public class Assignment6Test {
+public class RemoveDuplicateTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -26,14 +26,12 @@ public class Assignment6Test {
 	}
 
 	@Test
-	public void test6() {
-		System.out.println("Test6");
-		Assignment6 assignment6=new Assignment6();
-		int input1[]={1,2,3};
-		int input2[]={4,5,6};
-		int input3[]=new int[6];
-		int expected[]={1,2,3,4,5,6};
-		assertArrayEquals(expected,assignment6.join(input1,3,input2,3,input3));
-	}
+	public void test() {
+			
+		RemoveDuplicate tester=new RemoveDuplicate();
+			int input[]={1,2,3,8,9,3,5,1,0};
+			int expected[]={1,2,3,8,9,5,0};
+			assertArrayEquals(expected,tester.removeDuplicates(input));
+		}
 
 }

@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -7,7 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-public class CreatePyramidTest {
+public class LongestSequenceTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -24,26 +26,21 @@ public class CreatePyramidTest {
 	@After
 	public void tearDown() throws Exception {
 	}
-    
-	
-	
-	
-	CreatePyramid tester=new CreatePyramid();     //creating object of CreatePattern class
-	
+
 	@Test
-	public void testForNumberFunction() {       //for row=1 and n=5
+	public void test() {
 		
-		assertEquals("1",tester.numbers(1, 5));
+		LongestSequence tester =new LongestSequence();
+		int[] inputArray = { 1, 2, 3,2,3,4,5,3,4,2,2,3,4,5,6,7,8,1,2,4,5,6,7,8,9};
 		
-	
-    }
-	@Test
-	public void testForSpaceFunction() {       //for row=2 and n=5
+		String programOutput=tester.longestSequence(inputArray);
 		
-		assertEquals("   ",tester.spaces(2, 5));
+		int expectedArray[]={1,2,4,5,6,7,8,9};
 		
+		assertEquals(Arrays.toString(expectedArray),programOutput);
 	}
-	
-	
+
 
 }
+
+

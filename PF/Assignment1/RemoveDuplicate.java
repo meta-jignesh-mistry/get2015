@@ -1,5 +1,6 @@
-public class Assignment2 {
-	 int[] removeDuplicates(int[] arr) {
+public class RemoveDuplicate {
+	
+	 int[] removeDuplicates(int[] arr) {  //function to remove duplicates in array
 
 		    int end = arr.length;
 
@@ -22,13 +23,19 @@ public class Assignment2 {
 		    }
 		    return whitelist;
 		}
+	 
+	 
 		     public static void main(String[] args) {
-		        int a[]={2,2,3,3,4,4,0,5,6,7};
-		        Assignment2 b=new Assignment2();
+		    	 
+		        int a[]={2,2,3,3,4,4,0,5,6,7};   //providing input array
+		        
+		        RemoveDuplicate b=new RemoveDuplicate();
+		        
 		       int c[]=b.removeDuplicates(a);
+		       
 		         for (int i = 0; i <c.length; i++) {
 		             
-		               System.out.println(c[i]);
+		               System.out.print(" "+c[i]);
 		         }
 		    }
 		    

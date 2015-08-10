@@ -1,16 +1,14 @@
 
-public class Assignment5 {
+public class TypeOfArray {
 
 	
-	
-	
-	public int typeOfArray(int arr[]){
+	public int checkTypeOfArray(int arr[]){
 		
 		int flag=0;
-		if(arr[0]>arr[1]){
+		if(arr[0]>arr[1]){             
 		for(int i=0;i<arr.length-1;i++)
 		{     
-			if(arr[i]>=arr[i+1]){
+			if(arr[i]>=arr[i+1]){     //checking of array for Decending order
 				
 				
 			  flag=1;
@@ -25,7 +23,7 @@ public class Assignment5 {
 			for(int j=0;j<arr.length-1;j++)
 			{   
 				
-				if(arr[j]<=arr[j+1]){
+				if(arr[j]<=arr[j+1]){   //checking of array for Asendending order
 					
 					
 					  flag=2;
@@ -65,8 +63,8 @@ public class Assignment5 {
 		
 		
 		int[] input={2,4,7,9};
-		Assignment5 a=new Assignment5();
-		int out=a.typeOfArray(input);
+		TypeOfArray a=new TypeOfArray();
+		int out=a.checkTypeOfArray(input);
 		
 		if(out==1){
 			System.out.print("Asendending type of array");

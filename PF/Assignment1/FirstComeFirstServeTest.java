@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-public class  Assignment4Test
+public class  FirstComeFirstServeTest
 {
 	int [][]expected = new int[][] { { 1,1,0,1,12},
 			{2,5,8,13,19}, {3,9,11,20,21}, {4,25,0,25,29}
@@ -50,7 +50,7 @@ public class  Assignment4Test
 	@Test
 	public void test()
 	{
-		Assignment4 obj = new Assignment4();
+		FirstComeFirstServe obj = new FirstComeFirstServe();
 		assertEquals(0, isArrayEqual(expected,obj.FCFS(arrival_time ,job_size  , 4)));
 	}
 
