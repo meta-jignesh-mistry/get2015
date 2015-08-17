@@ -1,58 +1,8 @@
-
+package Interface_implementation;
 
 import java.util.Scanner;
 
-
-
-interface Shape {
-
-	
-	String draw();
-	double getArea();
-	
-	
-}
-
-//class implementing  the draw and getArea methods of Shape interface
-class Circle implements Shape{
-	double radius;
-	public Circle(int radius){
-		this.radius=radius;
-	}
-	public String draw(){
-		return "This is circle ";
-	}
-	public double getArea(){
-		double area=3.14*(radius*radius);
-		return area;
-	}
-	
-}
-
-
-
-//class implementing  the draw and getArea methods of Shape interface
-class Square implements Shape{
-	double edge;
-	
-	public Square(int edge){
-		this.edge=edge;
-	}
-	
-	public String draw(){
-		return "This is square ";
-	}
-	public double getArea(){
-		double area=edge*edge;
-		return area;
-	}
-	
-}
-
-
-// class have Main method 
-public class InterfaceImplementation{
-	
+public class InterfaceImplementation {
 	public static void main(String args[]){
 		 int radius=0,edge=0,choice=0;
 		
@@ -68,7 +18,7 @@ public class InterfaceImplementation{
 					case 1:	
 						System.out.println("Enter the radius of circle");
 						radius=sc.nextInt();
-						Shape circle=new Circle(3);
+						Shape circle=new Circle(radius);
 						System.out.println(circle.draw());
 						System.out.println("Area of circle = "+circle.getArea());
 						break;
@@ -91,7 +41,5 @@ public class InterfaceImplementation{
 		 }
 		
 		sc.close();
-		
 	}
-	
 }
