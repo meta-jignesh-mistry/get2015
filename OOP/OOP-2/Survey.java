@@ -1,4 +1,4 @@
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -20,10 +20,10 @@ public class Survey {
 		double a1=0,a2=0,a3=0,a5=0,a4=0;
 		double counter=0;
 		
-		Iterator<Participant> iterator = ((ArrayList<Participant>) participant)
+		Iterator<Participant> participantIterator = ((ArrayList<Participant>) participant)
 				.iterator();
-		while (iterator.hasNext()) {
-			Participant pobject = iterator.next();
+		while (participantIterator.hasNext()) {
+			Participant pobject = participantIterator.next();
 			counter++;
 			if (pobject.singleChoice.equalsIgnoreCase("1")){
 				
@@ -50,11 +50,20 @@ public class Survey {
 		return result;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
-		SingleSelect sSelect=new SingleSelect("1"," Overall Rating, Single Select, (1/2/3/4/5)");
-		MultiSelect mSelect=new MultiSelect("2","Area of improvement, Multi Select, (Service Quality/ Communication/ Delivery Process)");
-		Text text=new Text("3","Feedback, Text");
+		
+		ReadFromFile fileString=new ReadFromFile();
+		int length=fileString.getQuestions().length;
+		String questionArray[]=new String[length];
+		
+		//storing the question array string
+		questionArray=fileString.getQuestions();
+		
+		
+		SingleSelect sSelect=new SingleSelect("1",questionArray[0]);
+		MultiSelect mSelect=new MultiSelect("2",questionArray[1]);
+		Text text=new Text("3",questionArray[2]);
 		
 		
 		 int p=0;
@@ -68,7 +77,7 @@ public class Survey {
 				System.out.println(sSelect.qBody);
 				
 				String q1=sc.nextLine();
-				if(!(q1.equals("1")||q1.equals("2")||q1.equals("3")||q1.equals("4")||q1.equals("5"))){
+				while(!(q1.equals("1")||q1.equals("2")||q1.equals("3")||q1.equals("4")||q1.equals("5"))){
 					System.out.println("Please enter number 1/2/3/4/5 only");
 					q1=sc.nextLine();
 				}
@@ -95,16 +104,18 @@ public class Survey {
 			}
 			
 			System.out.println(" \nPERCENTAGE COMPARISION OF RATING ");
+			//storing the Rating percentage
 			double []result=new Survey().getOverAllRating();
 			for(int i=0;i<result.length;i++){
 				System.out.println((i+1)+" - "+result[i]+"%");
 			}
+			//showing the All participant report
 			System.out.println("\n REPORT OF PARTICIPANT ");
 			int i=1;
-			Iterator<Participant> iterator = ((ArrayList<Participant>) participant)
+			Iterator<Participant> participantIterator = ((ArrayList<Participant>) participant)
 					.iterator();
-			while (iterator.hasNext()) {
-				Participant pobject = iterator.next();
+			while (participantIterator.hasNext()) {
+				Participant pobject = participantIterator.next();
 				System.out.println("\n\nParticipant "+i+"\n");
 				System.out.println("Q."+sSelect.qId+"  "+sSelect.qBody);
 				System.out.println("Answer =" +pobject.singleChoice);
@@ -155,6 +166,9 @@ class Question{
 		this.qBody=qBody;
 		this.qId=qId;
 	}
+public Question(){
+		
+	}
 	
 }
 
@@ -165,6 +179,7 @@ class SingleSelect extends Question{
 	public SingleSelect(String qId,String qBody){
 		super(qId,qBody);
 	}
+	
 	
 }
 
