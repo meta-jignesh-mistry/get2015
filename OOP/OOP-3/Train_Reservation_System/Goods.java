@@ -1,21 +1,21 @@
-
 package Train_Reservation_System;
 
+
 /*
- * this class stores the information about Passenger booking history.
+ * this class stores the information about Goods booking history.
  */
-public class Passenger {
+public class Goods {
 	
 	String userName="";
 	String trainNumber="";
 	String ticketId="";
 	String paymentId="";
-	int nSeat=0;
+	int nWeight=0;
 	int totalAmount=0;
-	public Passenger(String userName,String trainNumber,String ticketId,String paymentId,int nSeat,int totalAmount){
+	public Goods(String userName,String trainNumber,String ticketId,String paymentId,int nWeight,int totalAmount){
 		this.userName=userName;
 		this.trainNumber=trainNumber;
-		this.nSeat=nSeat;
+		this.nWeight=nWeight;
 		this.totalAmount=totalAmount;
 		this.ticketId=ticketId;
 		this.paymentId=paymentId;

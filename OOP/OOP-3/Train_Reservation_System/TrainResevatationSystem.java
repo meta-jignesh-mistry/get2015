@@ -17,19 +17,21 @@ import java.util.StringTokenizer;
  *this class use for book tickets  
  */
 public class TrainResevatationSystem {
+	static Train ptrainObject=new Ptrain();
+	static Train gtrainObject=new Gtrain();
 	
-	ArrayList<Train> ptrain = new ArrayList<Train>();
-	ArrayList<Train> gtrain = new ArrayList<Train>();
-	static ArrayList<Passenger> passenger = new ArrayList<Passenger>();
+	static ArrayList<Train> ptrain = new ArrayList<Train>();
+	static ArrayList<Train> gtrain = new ArrayList<Train>();
+	static ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
 	static ArrayList<Goods> goods = new ArrayList<Goods>();
 	ArrayList<Payment> payment = new ArrayList<Payment>();
 	Iterator<Train> iteratorPtrain;
 	Iterator<Train> iteratorGtrain;
 	static Iterator<Passenger> iteratorPassenger;
 	static Iterator<Goods> iteratorGoods;
-	Train tPassenger;
-	Train tGoods;
-	Passenger passe;
+	//Train tPassenger;
+	//Train tGoods;
+	Passenger passenger;
 	Goods good;
 	Payment pay;
 	int count=0;
@@ -57,60 +59,7 @@ public class TrainResevatationSystem {
 		}
 	}
 	
-	//this method read data from file
-	void getTrainChart() throws IOException{
-		
-		try {
-			StringTokenizer stringTokenizer;
-			FileInputStream fin = new FileInputStream(new File("C:\\Users\\Jignesh\\workspace\\OOP3\\src\\Train_Reservation_System\\train"));
-			DataInputStream in = new DataInputStream(fin);
-			 BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			String trainData="";
-			int i=1;
-			String trainType="",trainId="",time="",fare="",route="",capacity="";
-			while ((trainData = br.readLine()) != null) {
-				stringTokenizer = new StringTokenizer(trainData,","); 
-				 i=1;
-				 while (stringTokenizer.hasMoreTokens()) {  
-			         if(i==1){  
-			        	 trainType=stringTokenizer.nextToken();
-			         }
-			         else if(i==2){
-			        	 trainId=stringTokenizer.nextToken();
-			         }
-			         else if(i==3){
-			        	 time=stringTokenizer.nextToken();
-			         }
-			         else if(i==4){
-			        	 fare=stringTokenizer.nextToken();
-			         }
-			         else if(i==5){
-			        	 route=stringTokenizer.nextToken();
-			         }else {
-			        	 capacity=stringTokenizer.nextToken();
-			         }
-			        	i++; 
-			     }
-				int f=Integer.parseInt(fare);
-				int c=Integer.parseInt(capacity);
-				if(trainType.equalsIgnoreCase("P")){
-					tPassenger=new Ptrain(trainType,trainId,time,f,route,c);
-					ptrain.add(tPassenger);
-				}
-				else{
-					tGoods=new Gtrain(trainType,trainId,time,f,route,c);
-					gtrain.add(tGoods);
-				}
-				
-				
-			}
-			
-			fin.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-	
+
 	//this method allocate ticket to user
 	void allocateTicket(String name,String type){
 		String train_Number;
@@ -169,7 +118,7 @@ public class TrainResevatationSystem {
 			n_Weight=scanner.nextInt();
 		}
 		
-		int totalAmount=this.checkTicket(type, station,train_Number,n_Ticket,n_Weight
+		int totalAmount=this.checkAvailabilty(type, station,train_Number,n_Ticket,n_Weight
 				);
 		
 		if(!(totalAmount==0)){
@@ -184,9 +133,24 @@ public class TrainResevatationSystem {
 				if(pmode.equalsIgnoreCase("credit card")){
 					paymentId=ticketId+"_"+"CC"+count;
 					System.out.println("Enter the card number");
-					String cNumber=scanner.nextLine();
+					String cNumber;
+					cNumber=scanner.nextLine();
+					
+						while(!(cNumber.matches("[0-9]+"))){
+						System.out.println("please enter correct Card no.");
+						cNumber=scanner.nextLine();
+						}
+				
 					System.out.println("Enter the cvv number");
-					String cvvNumber=scanner.nextLine();
+					
+					String cvvNumber;
+					cvvNumber=scanner.nextLine();
+					
+					while(!(cvvNumber.matches("[0-9]+"))){
+						
+						System.out.println("please enter correct cvv no.");
+					cvvNumber=scanner.nextLine();
+					}
 					pay=new CreditCard(paymentId,pmode,cNumber,cvvNumber);
 					payment.add(pay);
 				}
@@ -208,8 +172,8 @@ public class TrainResevatationSystem {
 				}
 				System.out.println("Your ticket booked succesfully and your ticket id = "+ticketId);
 				System.out.println();	
-				passe=new Passenger(name,train_Number,ticketId,paymentId,n_Ticket,totalAmount);
-				passenger.add(passe);
+				passenger=new Passenger(name,train_Number,ticketId,paymentId,n_Ticket,totalAmount);
+				passengerList.add(passenger);
 			}
 			//for goods train
 			else{		
@@ -220,10 +184,26 @@ public class TrainResevatationSystem {
 				String paymentId="";
 				if(pmode.equalsIgnoreCase("credit card")){
 					paymentId=ticketId+"_"+"CC"+count;
+					
 					System.out.println("Enter the card number");
-					String cNumber=scanner.nextLine();
+					String cNumber;
+					cNumber=scanner.nextLine();
+					
+						while(!(cNumber.matches("[0-9]+"))){
+						System.out.println("please enter correct Card no.");
+						cNumber=scanner.nextLine();
+						}
+				
 					System.out.println("Enter the cvv number");
-					String cvvNumber=scanner.nextLine();
+					
+					String cvvNumber;
+					cvvNumber=scanner.nextLine();
+					
+					while(!(cvvNumber.matches("[0-9]+"))){
+						
+						System.out.println("please enter correct cvv no.");
+					cvvNumber=scanner.nextLine();
+					}
 					pay=new CreditCard(paymentId,pmode,cNumber,cvvNumber);
 					payment.add(pay);
 				}
@@ -256,7 +236,7 @@ public class TrainResevatationSystem {
 	}
 		
 	//this method check train have enough space or not and calculate amount to be paid
-	int checkTicket(String type,String station,String train_Number,int n_Ticket,int n_Weight){
+	int checkAvailabilty(String type,String station,String train_Number,int n_Ticket,int n_Weight){
 		int totalAmount=0;
 		try{  
 			if(type.equalsIgnoreCase("p")){
@@ -290,7 +270,7 @@ public class TrainResevatationSystem {
 	//this method show the passenger and goods booking history
 	void showTicketDetail(String type){
 		if(type.equalsIgnoreCase("p")){
-			iteratorPassenger = ((ArrayList<Passenger>) passenger).iterator();
+			iteratorPassenger = ((ArrayList<Passenger>) passengerList).iterator();
 			System.out.println("Passenger Name   Ticket ID		Payment ID		Train Id		Booked Seats		Paid Amount");
 			while (iteratorPassenger.hasNext()) {
 				Passenger tobject = iteratorPassenger.next();
@@ -311,10 +291,13 @@ public class TrainResevatationSystem {
 	public static void main(String args[]) throws IOException{
 	Scanner sc = new Scanner(System.in);
 	TrainResevatationSystem trs=new TrainResevatationSystem();
+	Train passengerTrain=new Ptrain();
 	String userName="";
 	String trainType="";
 	int choice=0;
-	trs.getTrainChart();
+	ptrain=ptrainObject.getPassengerTrainChart();
+	
+	gtrain=gtrainObject.getGoodsTrainChart();
 	try{
 	do{
 		

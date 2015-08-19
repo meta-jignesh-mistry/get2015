@@ -1,6 +1,9 @@
 
 package Train_Reservation_System;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 /*
  * this class stores the information about train.
  */
@@ -14,34 +17,9 @@ public abstract class Train {
 		public int seats_weight=0;
 	
 
+		abstract ArrayList<Train> getPassengerTrainChart() throws NumberFormatException, IOException;
+		abstract ArrayList<Train> getGoodsTrainChart() throws IOException;
 }
 
-/*
- * this class stores the information about Passenger train.
- */
-class Ptrain extends Train{
-	
-	public  Ptrain(String tt,String n,String t,int m,String fts,int s){
-		this.tType=tt;
-		this.trainNumber=n;
-		this.timeDuration=t;
-		this.fare=m;
-		this.fromToStation=fts;
-		this.seats_weight=s;
-	}
-}
 
-/*
- * this class stores the information about Goods train.
- */
-class Gtrain extends Train{
-	
-	public  Gtrain(String tt,String n,String t,int m,String fts,int w){
-		this.tType=tt;
-		this.trainNumber=n;
-		this.timeDuration=t;
-		this.fare=m;
-		this.fromToStation=fts;
-		this.seats_weight=w;
-	}
-}
+
