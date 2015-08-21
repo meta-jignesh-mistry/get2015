@@ -66,7 +66,7 @@ public class Car {
 			}
 
 		}
-		sc.close();
+		
 		return	car;	
 		
 	}

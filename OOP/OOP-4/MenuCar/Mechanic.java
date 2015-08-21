@@ -19,9 +19,11 @@ public class Mechanic {
 		this.rate = rate;
 		this.avail = avail;
 	}
+	
 	public Mechanic(){
 		
 	}
+	//setting the mechanic objects in Mechanic ArrayList
 	public  ArrayList<Mechanic> setMechanic(){
 		mech.add(new Mechanic("Ravi", "Sedan", 3000, 0));
 		mech.add(new Mechanic("Sonu", "SUV", 5000, 0));
