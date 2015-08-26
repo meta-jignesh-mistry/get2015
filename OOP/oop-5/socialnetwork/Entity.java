@@ -1,13 +1,13 @@
 
 package socialnetwork;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
+//super class of person and organization class
 public class Entity {
     String email;
     String name;
-    ArrayList<String> friends=new ArrayList<String>();
+    HashMap<String,String> friends=new HashMap<String,String>();
     public Entity(String email, String name) {
         this.email = email;
         this.name = name;
