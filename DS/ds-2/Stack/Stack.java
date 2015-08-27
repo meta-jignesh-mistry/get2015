@@ -1,9 +1,10 @@
+package Stack;
 
 
 //Stack class that have method like pop,push,peep
 public class Stack {
     int size;
-    Node node=new Node();
+    LinkListMethodImplementation node=new LinkListMethodImplementation();
     public Stack(){
         size=0;
         
