@@ -2,14 +2,14 @@
 package binarysearchtree;
 
 //class to generate BinaryTree node
-public class BinaryTreeNode {
+public class Node {
    
     public int key;
-    BinaryTreeNode leftChild;
-    BinaryTreeNode rightChild;
+    Node leftChild;
+    Node rightChild;
     String name;
 
-    public BinaryTreeNode(int key, String name) {
+    public Node(int key, String name) {
         this.key = key;
         this.name = name;
     }
