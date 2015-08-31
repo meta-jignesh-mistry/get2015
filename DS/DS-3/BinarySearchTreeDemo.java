@@ -4,11 +4,11 @@ package binarysearchtree;
 import java.util.Scanner;
 
 
-public class BinarySearchTreeMainClass {
+public class BinarySearchTreeDemo {
 
     public static void main(String[] args) {
         int flag=0;
-        BinaryTreeMethodImplementation tree=new BinaryTreeMethodImplementation();
+        BinaryTree tree=new BinaryTree();
         while(true){
         System.out.println("press 1 to add node in Tree");
         System.out.println("press 2 to show preOrder traversal of Tree");
