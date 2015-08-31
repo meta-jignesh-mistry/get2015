@@ -1,15 +1,15 @@
 package binarysearchtree;
 
 //class have method implementation of BinarySearchTree
-public class BinaryTreeMethodImplementation  {
+public class BinaryTree  {
     
     String str="";
     String str1="";
-    BinaryTreeNode root;
+    Node root;
     //method to add node in Binary Search tree
     public void addNode(int key,String name){
         
-       BinaryTreeNode newNode=new BinaryTreeNode(key,name);
+       Node newNode=new Node(key,name);
        
        //if root null,make it new node
        if(root==null){
@@ -19,8 +19,8 @@ public class BinaryTreeMethodImplementation  {
        }
        else{
            
-           BinaryTreeNode currentNode=root;
-           BinaryTreeNode parent;
+           Node currentNode=root;
+           Node parent;
            while(true){
                parent=currentNode;
                if(key<currentNode.key){
@@ -45,8 +45,8 @@ public class BinaryTreeMethodImplementation  {
         
         
     }
-  //method to show inordertraversal of tree  
- public void inOrderTraversalTree(BinaryTreeNode currentNode  ){
+  //method to show in-order traversal of tree  
+ public void inOrderTraversalTree(Node currentNode  ){
      
      if(currentNode!=null){
          inOrderTraversalTree(currentNode.leftChild);
@@ -55,8 +55,8 @@ public class BinaryTreeMethodImplementation  {
      }
  }   
     
- //method to show preorder traversal of tree
- public String preOrderTraversalTree(BinaryTreeNode currentNode){
+ //method to show pre-order traversal of tree
+ public String preOrderTraversalTree(Node currentNode){
            
          if(currentNode!=null){
                 System.out.println(currentNode);
@@ -69,7 +69,7 @@ public class BinaryTreeMethodImplementation  {
  }   
     
  //method to show post order traversal of tree
- public String postOrderTraversalTree(BinaryTreeNode currentNode){
+ public String postOrderTraversalTree(Node currentNode){
      
             if(currentNode!=null){
                 postOrderTraversalTree(currentNode.leftChild);
@@ -80,16 +80,16 @@ public class BinaryTreeMethodImplementation  {
             }
 			return str;
  }     
-    public int getKey(BinaryTreeNode node){
+    public int getKey(Node node){
         return node.key;
     }
-    public BinaryTreeNode getRoot(){
+    public Node getRoot(){
         return root;
     }
     
     public void addMirrorNode(int key,String name){
         
-        BinaryTreeNode newNode=new BinaryTreeNode(key,name);
+        Node newNode=new Node(key,name);
         
         //if root null,make it new node
         if(root==null){
@@ -99,8 +99,8 @@ public class BinaryTreeMethodImplementation  {
         }
         else{
             
-            BinaryTreeNode currentNode=root;
-            BinaryTreeNode parent;
+            Node currentNode=root;
+            Node parent;
             while(true){
                 parent=currentNode;
                 if(key<currentNode.key){
