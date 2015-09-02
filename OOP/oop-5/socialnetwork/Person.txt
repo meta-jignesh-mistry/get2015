@@ -1,5 +1,0 @@
-jmistry94@gmail.com,Jignesh Mistry,8560838144,Cricket
-neha.sharma@yahoo.com,Neha Sharma,956824143,Hockey
-subhash.chand@gmail.com,Subhash Chand,7896524638,Table_tenis
-vikas.suthar@yahoo.com,Vikas Suthar,9414533024,Gaming
-rohit.kumar@gmail.com,Rohit kumar,978526423,Football
