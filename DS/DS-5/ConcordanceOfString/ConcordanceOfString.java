@@ -1,4 +1,5 @@
 package ConcordanceOfString;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
@@ -7,10 +8,10 @@ import java.util.Set;
 public class ConcordanceOfString {
 
 	
-	public  Hashtable<Character,Set<Integer>> concordance=new Hashtable<Character,Set<Integer>>();
+	public  HashMap<Character,Set<Integer>> concordance=new HashMap<Character,Set<Integer>>();
 	
-	//method to find concordance of character in string array and return hash table variable
-	public Hashtable<Character,Set<Integer>> findConcordance(String arg[]){
+	//method to find concordance of character in string array and return hash map variable
+	public HashMap<Character,Set<Integer>> findConcordance(String arg[]){
 		 int length=arg.length;
 		    int index=0;
 		    
