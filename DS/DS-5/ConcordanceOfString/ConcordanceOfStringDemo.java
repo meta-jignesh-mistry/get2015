@@ -1,13 +1,14 @@
 package ConcordanceOfString;
 
 
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Hashtable;
+
 import java.util.Set;
 
 
 public class ConcordanceOfStringDemo {
-   public static Hashtable<Character,Set<Integer>> concordance=new Hashtable<Character,Set<Integer>>();
+   public static HashMap<Character,Set<Integer>> concordance=new HashMap<Character,Set<Integer>>();
     
     public static void main(String args[]){
     
