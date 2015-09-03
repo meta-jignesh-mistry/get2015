@@ -44,7 +44,7 @@ public class SortByEmpNameDemo {
 							
 							
 							
-							Employee emp = new Employee(empId,name.toUpperCase(),address);
+							Employee emp = new Employee(empId,name,address);
 							
 							//adding employee Object to Employee Set
 							employee.add(emp);
