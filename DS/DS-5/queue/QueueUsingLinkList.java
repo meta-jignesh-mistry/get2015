@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public  class QueueUsingLinkList extends LinkedList<String>  {
    
-	LinkedList<String> linkList;
+	private LinkedList<String> linkList;
     
 	public QueueUsingLinkList(){
     
