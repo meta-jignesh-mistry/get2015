@@ -9,7 +9,8 @@ import java.util.Scanner;
 public class BinarySearchDemo {
 	public static void main(String args[]){
 	 Scanner scan = new Scanner(System.in);
-	 String regex="[0-9]+";
+	 String regexForAllInteger="-?[0-9]{0,10}";
+	 String regexForPositiveInt="[1-9][0-9]*";
 	 
 	 int sizeOfArray;
 	 String size;
@@ -17,8 +18,11 @@ public class BinarySearchDemo {
 	 do{
 		 System.out.println("Enter Total no. of Elements Of Array");
 	     size=scan.nextLine();
+	     if(!size.matches(regexForPositiveInt)){
+	    	 System.out.println("Please enter valid number\n");
+	     }
 	     
-	   }while(!size.matches(regex));
+	   }while(!size.matches(regexForPositiveInt));
 	 
 	 sizeOfArray=Integer.parseInt(size);
 	 //list will contain all elements
@@ -36,7 +40,13 @@ public class BinarySearchDemo {
 	 do{
 			System.out.println("Enter element "+(i+1));
 			newElement=scan.nextLine(); 
-		}while(!newElement.matches(regex));
+			
+			if(!size.matches(regexForPositiveInt)){
+		    	 System.out.println("Please enter valid Integer\n");
+		     }
+		     
+			
+		}while(!newElement.matches(regexForAllInteger));
 	 
 	    element=Integer.parseInt(newElement);
 	    
@@ -48,7 +58,9 @@ public class BinarySearchDemo {
 	 for(int i=0;i<sizeOfArray;i++){
 		 array[i]=listOfElements.get(i);
 	 }
-	
+	 
+	 System.out.println("Binary Search Only Works on Sorted data, Sorted data is");
+	 System.out.println(listOfElements);
 	 
 	 int searchElement;
 	 
@@ -64,7 +76,11 @@ public class BinarySearchDemo {
 	 do{
 		 System.out.println("Enter element to be searched");
 		 searchElement1=scan.nextLine();
-	 }while(!searchElement1.matches(regex));
+		 if(!size.matches(regexForPositiveInt)){
+	    	 System.out.println("Please enter valid Integer\n");
+	     }
+		 
+	 }while(!searchElement1.matches(regexForAllInteger));
 	 
 	 searchElement = Integer.parseInt(searchElement1);
 	 //method will return left most index value of element if element present otherwise it will return -1
@@ -75,7 +91,7 @@ public class BinarySearchDemo {
 		 System.out.println("\nElement not Found\n");
 	 }
 	 else{
-		 System.out.println("\nLeftmost position of element in array : "+leftMostIndex);
+		 System.out.println("\nLeftmost index of element in array : "+leftMostIndex);
 	 }
 
 }
