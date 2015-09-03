@@ -68,7 +68,7 @@ public class BinarySearchDemo {
 	 
 	 searchElement = Integer.parseInt(searchElement1);
 	 //method will return left most index value of element if element present otherwise it will return -1
-	 int leftMostIndex=binarySearch.findLeftMostOccurance(array,arraySize,low,high,searchElement);
+	 int leftMostIndex=binarySearch.findLeftMostOccurrence(array,arraySize,low,high,searchElement);
 	 
 	 if(leftMostIndex==-1){
 		 //if element is not present
