@@ -12,7 +12,7 @@ public class SortedLinkedListDemo {
 		Scanner scan = new Scanner(System.in);
 		
 		LinkList linkList=new LinkList();
-		String regix="[0-9]+";
+		String regix="-?[0-9]{0,10}";
 		String choice;
 		int index=0;
 		
@@ -33,7 +33,7 @@ public class SortedLinkedListDemo {
 			 
 			 			int data=Integer.parseInt(dataValue);
 						//adding data item at appropriate position(Sorting of data) by calling checkIndex method
-						linkList.checkIndex(index, data);
+						linkList.addElementInSortedList(index, data);
 						break;
 						
 						//displaying linked list
