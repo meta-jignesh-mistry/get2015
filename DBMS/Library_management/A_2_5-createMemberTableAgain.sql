@@ -1,3 +1,6 @@
+--to Create the members(User) table again
+
+
 USE Library;
 CREATE TABLE Users(
 userId INT not NULL,
