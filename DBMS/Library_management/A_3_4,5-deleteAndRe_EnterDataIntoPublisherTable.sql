@@ -1,3 +1,9 @@
+--Delete all the rows from Publishers table and
+--Insert the sample data back in Publishers table using substitution variables.
+
+
+
+
 Use Library;
 DELETE FROM Publishers;
 SET @name = 'Tata Mc Hill';
