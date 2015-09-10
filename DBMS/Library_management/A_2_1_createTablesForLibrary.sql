@@ -1,3 +1,5 @@
+--Create all tables of Library 
+
 USE Library;
 
 CREATE TABLE Users(
