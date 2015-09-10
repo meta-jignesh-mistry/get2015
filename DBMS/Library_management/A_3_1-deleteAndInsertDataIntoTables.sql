@@ -1,3 +1,6 @@
+--to Insert sample data in LIS tables
+
+
 USE Library;
 
 
