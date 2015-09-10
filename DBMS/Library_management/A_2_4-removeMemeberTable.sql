@@ -1,3 +1,5 @@
+ --to remove Members table of the LIS database
+
 USE Library;
 DROP TABLE Books_Issue;
 DROP TABLE Books_Return;
