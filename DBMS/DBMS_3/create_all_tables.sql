@@ -60,7 +60,7 @@ PRIMARY KEY(issueDate,accessionNo,memberId)
 );
 
 CREATE TABLE Books_Return(
-returnDate DATE,
+returnDate DATE not NULL,
 accessionNo INT not NULL,
 memberId INT not NULL,
 issueDate DATE,
