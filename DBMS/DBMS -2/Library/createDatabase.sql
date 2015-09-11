@@ -1,2 +1,2 @@
-DROP DATABASE library;
-Create DATABASE library;
+-- query to create database
+Create DATABASE LibraryInformationSystem;

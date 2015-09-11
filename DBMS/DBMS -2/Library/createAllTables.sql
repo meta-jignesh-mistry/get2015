@@ -1,12 +1,19 @@
-USE Library;
 
-CREATE TABLE Users(
-userId INT not NULL,
-userName VARCHAR(100),
+-- query to use database
+USE LibraryInformationSystem;
+
+
+
+-- creation of tables
+
+CREATE TABLE Member(
+memberId INT not NULL,
+memberName VARCHAR(100),
 addressLine1 VARCHAR(100),
 addressLine2 VARCHAR(100),
 gender char(1),
-PRIMARY KEY(userId)
+category varchar(20),
+PRIMARY KEY(memberId)
 );
 
 CREATE TABLE Publishers(
@@ -45,21 +52,21 @@ PRIMARY KEY(accessionNo)
 CREATE TABLE Books_Issue(
 issueDate DATE not NULL,
 accessionNo INT not NULL,
-userId INT not null,
+memberId INT not null,
 dueDate DATE,
-FOREIGN KEY(userId) REFERENCES Users(userId) ON DELETE CASCADE ,
+FOREIGN KEY(memberId) REFERENCES Member(memberId) ON DELETE CASCADE ,
 FOREIGN KEY(accessionNo) REFERENCES Books(accessionNo) ON DELETE CASCADE,
-PRIMARY KEY(issueDate,accessionNo,userId)
+PRIMARY KEY(issueDate,accessionNo,memberId)
 );
 
 CREATE TABLE Books_Return(
-returnDate DATE not NULL,
+returnDate DATE,
 accessionNo INT not NULL,
-userId INT not NULL,
+memberId INT not NULL,
 issueDate DATE,
-FOREIGN KEY(userId) REFERENCES Users(userId) ON DELETE CASCADE,
+FOREIGN KEY(memberId) REFERENCES Member(memberId) ON DELETE CASCADE,
 FOREIGN KEY(accessionNo) REFERENCES Books(accessionNo) ON DELETE CASCADE,
-PRIMARY KEY(returnDate,accessionNo,userId)
+PRIMARY KEY(returnDate,accessionNo,memberId)
 );
 
 CREATE TABLE Authors(
