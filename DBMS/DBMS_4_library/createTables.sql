@@ -1,6 +1,6 @@
 
 -- query to use database
-USE LibraryInformationSystem;
+USE LibraryInfoSystem;
 
 
 
@@ -11,7 +11,6 @@ memberId INT not NULL,
 memberName VARCHAR(100),
 addressLine1 VARCHAR(100),
 addressLine2 VARCHAR(100),
-gender char(1),
 category varchar(20),
 PRIMARY KEY(memberId)
 );
