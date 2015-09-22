@@ -6,7 +6,7 @@
 <br>
 <br>
 <h2 align="center"><mark>Create Your Job Profile</mark></h2>
-<form name="form">
+<form >
 
 <p style="font-size:26px">
 <b>Create your Account</b></p>
@@ -17,10 +17,10 @@
 <td> *Email Id</td> <td><input type="email"  required="required" name ="email"  /> </td>
 </tr>
 <tr>
-<td> *Password</td> <td><input type="text"  name ="pwd"/> </td>
+<td> *Password</td> <td><input type="text"  name ="pwd" required/> </td>
 </tr>
 <tr>
-<td> *Confirm password</td> <td><input type="text"  name ="cpwd" /></td>
+<td> *Confirm password</td> <td><input type="text"  name ="cpwd" required /></td>
 </tr>
 
 </table>
@@ -38,7 +38,7 @@
  
  <tr>
 
-<td> *Current Location</td> <td><select >
+<td> *Current Location</td> <td><select required>
 	<option selected disabled>Select</option>
   <option value="jaipur">Jaipur</option>
   <option value="Delhi">delhi</option>
@@ -47,7 +47,7 @@
 </select> </td> <td><input type="checkbox" name="notIndian">Not from India </td>
 
 </tr>
-<tr><td>*Mobile no.</td> <td><input type="text"  name ="mobileno"/> </td></tr> 
+<tr><td>*Mobile no.</td> <td><input type="tel"  name ="mobileno" required /> </td></tr> 
  </table>
  <p>      If you don't have mobile, enter <mark>landline no</mark></p>
 
@@ -58,7 +58,7 @@ Current Professional Details
  <table>
  <tr>
  <td>
- *Total Experience :</td><td> <select>
+ *Total Experience :</td><td> <select required>
  				<option selected disabled>Select</option>
 				<option value="0">0</option>
 				<option value="1">1</option>
@@ -88,7 +88,7 @@ Current Professional Details
  </td>
  </tr>
  <tr><td>*Current Industry :</td><td>
- <select>
+ <select required>
  				<option selected disabled>Select</option>
 				<option value="mining">mining industry</option>
 				<option value="oil">oil industry</option>
@@ -100,7 +100,7 @@ Current Professional Details
 
  
   <tr><td>*Functional Area:</td><td>
- <select>
+ <select required>
 				<option selected disabled>Select</option>
 				<option value="manager">manager</option>
 				<option value="seniour manager">seniour manager</option>
@@ -112,8 +112,8 @@ Current Professional Details
  </table>
  <table>
  
- <tr> <td>*Key Skills:</td><td><textarea name="keyskill"placeholder="please enter your area of expertise or speclization" rows="5" cols="60"></textarea></td><tr>
-  <tr> <td>*Resume headline : </td><td><textarea name="backgroud"placeholder="Describe your professional backgroud in one line" rows="2" cols="60"></textarea></td><tr>
+ <tr> <td>*Key Skills:</td><td><textarea name="keyskill"placeholder="please enter your area of expertise or speclization" rows="5" cols="60" required></textarea></td><tr>
+  <tr> <td>*Resume headline : </td><td><textarea name="backgroud"placeholder="Describe your professional backgroud in one line" rows="2" cols="60" required></textarea></td><tr>
  
  </table>
  <hr>
@@ -122,7 +122,7 @@ Current Professional Details
  <table>
  <tr>
 <td>
-*Basic/Graduation : </td><td> <select>
+*Basic/Graduation : </td><td> <select required>
 				<option selected disabled>Select</option>
 				<option value="btech">B.tech</option>
 				<option value="barch">B.Arch</option>
@@ -205,7 +205,7 @@ Current Professional Details
  <input type="checkbox" name="">I have read and understood and agree to the <a href="#"  >Terms and Conditions </a> governing the use<br> 
   
   
-<p align="center"><button type="submit"  value="width:8rem" autofocus=autofocus style="width:15rem;border-color:yellow"  form="form" value="submit" ><b>Create My Account</b></button></p>
+<p align="center"><button>create my account</button></p>
 
 
 </form>
