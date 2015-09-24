@@ -12,11 +12,12 @@
 	clear: both;
 	padding-bottom: 20px;
 	text-align: center;
-	background-image: url('new.jpg');
+	background-image: url('../image/new.jpg');
 }
 
 #headerText {
-	color: yellow; font-size : 50px;
+	color: yellow;
+	font-size: 50px;
 	font-family: fantasy;
 	margin-top: 10px;
 	font-size: 50px;
@@ -28,6 +29,18 @@
 	border: 10px solid lightgray;
 	border-radius: 10px;
 	clear: both;
+}
+
+.headtext {
+	color: orange;
+	font-size: 70px;
+	font-family: cursive;
+}
+
+.headsubtext {
+	color: orange;
+	font-size: 25px;
+	font-family: cursive;
 }
 
 .leftcontent {
