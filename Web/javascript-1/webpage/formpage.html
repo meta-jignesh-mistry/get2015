@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="../javascript/form.js"></script>
+<link href="../css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+	<div id="wrapper">
+		<p id="msg"></p>
+		<h1 align="center">Your Info</h1>
+		<hr>
+
+		<form onsubmit="return showMessage()">
+			<table align="center">
+				<tr>
+					<td><span class="alert">*</span>First Name :</td>
+					<td><input type="text" name="firstname" id="firstname"
+						placeholder="Enter First name" class="fullcolwidth" /></td>
+				</tr>
+				<tr>
+					<td><span class="alert">*</span>Last Name :</td>
+					<td><input type="text" name="lastname" id="lastname"
+						placeholder="Enter Last name" required="required"
+						class="fullcolwidth"></td>
+				</tr>
+				<tr>
+					<td><span class="alert">*</span>Password :</td>
+					<td><input type="password" name="pwd" id="pwd"
+						placeholder="Enter password " required="required"
+						class="fullcolwidth" /></td>
+				</tr>
+				<tr>
+					<td><span class="alert">*</span>Re-Enter Password :</td>
+					<td><input type="password" name="cpwd" id="cpwd"
+						placeholder="Re-enter password" required="required"
+						class="fullcolwidth" /></td>
+				</tr>
+				<tr>
+					<td><span class="alert">*</span>Age :</td>
+					<td><input type="number" name="age" id="age"
+						placeholder="Enter your age" min="1" max="110" required="required"
+						class="fullcolwidth" /></td>
+				</tr>
+				<tr>
+					<td><span class="alert">*</span>State :</td>
+					<td><select id="state" name="state" onchange="selectCity()"
+						required="required" class="fullcolwidth"><option selected
+								disabled value="select">-Select State-</option>
+							<option value="rajasthan">Rajasthan</option>
+							<option value="mp">Madhya Pradhesh</option>
+							<option value="up">Uttar Pradhesh</option>
+							<option value="maharashtra">Maharashtra</option></select></td>
+				</tr>
+				<tr>
+					<td><span class="alert">*</span>City :</td>
+					<td><select id="city" name="city" required="required"
+						class="fullcolwidth"><option selected disabled
+								value="select">-Select City-</option></select></td>
+				</tr>
+				<tr>
+					<td><span class="alert">*</span>Address Line1 :</td>
+					<td><textarea id="address" name="address" rows="4" cols="21"
+							placeholder="Enter your Address" class="fullcolwidth"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="checkbox"
+						onchange="activateSubmit()" id="check">I accept the
+						conditions</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><button disabled="disabled"
+							id="submit" onclick="return validateForm()">Submit Info</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+
+</body>
+</html>
