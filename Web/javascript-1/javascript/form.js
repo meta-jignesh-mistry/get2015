@@ -33,52 +33,52 @@ function activateSubmit() {
 function validateForm() {
 
 	if (document.getElementById("firstname").value == "") {
-		alert("First Name field is empty !");
+		alert("First Name Required !");
 		return false;
 	} else if (!document.getElementById("firstname").value.match("[a-zA-Z]+")) {
 
-		alert("First Name should not have number or special characters !");
+		alert("First Name can't have number or special characters !");
 		return false;
 	} else if (document.getElementById("lastname").value == "") {
-		alert("Last Name field is empty !");
+		alert("Last Name Required !");
 		return false;
 	}
 
 	else if (!document.getElementById("lastname").value.match("[a-zA-Z]+")) {
 
-		alert("Last Name should not have number or special characters !");
+		alert("Last Name can't have number or special characters !");
 		return false;
 	} else if (document.getElementById("pwd").value == "") {
-		alert("Password field can not be empty !");
+		alert("Password Required");
 		return false;
 	} else if (document.getElementById("cpwd").value == "") {
-		alert("Confirm Password field can not be empty !");
+		alert("Confirm Password Required !");
 		return false;
 	} else if (document.getElementById("pwd").value != document
 			.getElementById("cpwd").value) {
 
-		alert("Password is not matching ");
+		alert("Password didn't match with Confirm password ");
 		return false;
 	} else if (document.getElementById("age").value == "") {
 
-		alert("Age field is empty ");
+		alert("Age Required ! ");
 		return false;
 	} else if (document.getElementById("age").value < 1
 			|| document.getElementById("age").value > 100) {
 
-		alert("Age field can have only age between 1 to 100 ");
+		alert("Age field can't have age less than 1 or grater than 100 ");
 		return false;
 	} else if (document.getElementById("state").value == "select") {
 
-		alert("State name field is not selected");
+		alert("State name Required !");
 		return false;
 	} else if (document.getElementById("city").value == "select") {
 
-		alert("City name field is not selected");
+		alert("City name Required !");
 		return false;
 	} else if (document.getElementById("address").value == "") {
 
-		alert("Address field is empty");
+		alert("Address Required !");
 		return false;
 	} else {
 
