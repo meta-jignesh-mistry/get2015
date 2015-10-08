@@ -7,7 +7,7 @@ function create() {
 		var col;
 		var length = parseInt(document.getElementById("inputvalue").value);
 		var result = result
-				+ "<table id='Tables'><tr><th>Name</th><th>Max</th><th>Min</th></tr>"
+				+ "<table id='Tables'><tr><th>Name</th><th>Min</th><th>Max</th></tr>"
 
 		for (row = 0; row < length; row++) {
 			result = result + "<tr>";
@@ -58,12 +58,12 @@ function fill() {
 		document.getElementById("graph").innerHTML = result;
 
 		for (row = 0; row < length; row++) {
-			var max = parseInt(document.getElementById(row + "1").value);
-			var min = parseInt(document.getElementById(row + "2").value);
+			var min = parseInt(document.getElementById(row + "1").value);
+			var max = parseInt(document.getElementById(row + "2").value);
 			for (col = min; col <= max;) {
 				col = parseInt(col) + 1;
 				document.getElementById("graphtable").rows[row].cells[col].bgColor = "red";
-
+				document.getElementById("graphtable").rows[row].cells[col].innerHTML =col-1;
 			}
 		}
 	}
@@ -74,6 +74,14 @@ function validationForCreateTable() {
 	if (length == "") {
 		flag = false;
 		alert("row value should not be blank");
+	}else if(length<0){
+		flag = false;
+		alert("row value can not be less than 0 or equal to zero");
+	}
+	else if(length!=parseInt(length,10))
+	{
+		flag = false;
+		alert("row value can not be floating value");
 	}
 	return flag;
 }
@@ -82,8 +90,8 @@ function validation() {
 	var row;
 	var length = document.getElementById("inputvalue").value;
 	for (row = 0; row < length; row++) {
-		var max = document.getElementById(row + "1").value;
-		var min = document.getElementById(row + "2").value;
+		var min = document.getElementById(row + "1").value;
+		var max = document.getElementById(row + "2").value;
 		var name = document.getElementById(row + "0").value;
 		if (name == "") {
 			alert("Name should not be blank");
@@ -106,7 +114,17 @@ function validation() {
 			flag = false;
 			break;
 
-		}
+		}else if(max!=parseInt(max,10))
+	{
+		flag = false;
+		alert("max  can not be floating value");
+		break;
+	}else if(min!=parseInt(min,10))
+	{
+		flag = false;
+		alert("min can not be floating value");
+		break;
+	}
 
 	}
 	return flag;
