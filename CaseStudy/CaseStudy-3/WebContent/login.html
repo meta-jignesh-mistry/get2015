@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link href="../css/style.css" rel="stylesheet" />
+<title>Admin log in</title>
+<script type="text/javascript">
+	function isValidAdmin() {
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("pwd").value;
+		if (username != "admin") {
+			alert("Invalid Username");
+			return false;
+		} else if (password != "1234") {
+			alert("Invalid Password");
+			return false;
+		} else {
+			localStorage.userType = "admin";
+			return true;
+		}
+
+	}
+
+	function setUser() {
+		localStorage.userType = "user";
+
+	}
+</script>
+</head>
+<body>
+	<div id="wrapper">
+
+		<header>
+			<div id="head">
+				<nav>
+					<ul>
+						<li></li>
+
+
+					</ul>
+
+				</nav>
+
+			</div>
+			<img src="../image/car.png" id="image" />
+		</header>
+
+		<div id="loginBoxForAdmin">
+			<form action="index.html">
+				<h2 align="center">
+					<u>Admin Log In</u>
+				</h2>
+				<div>
+					<h3 align="center">User Name :</h3>
+					<p align="center">
+						<input type="text" name="username" id="username" />
+					</p>
+				</div>
+				<div>
+					<h3 align="center">Password :</h3>
+					<p align="center">
+						<input type="password" name="pwd" id="pwd" />
+					</p>
+				</div>
+				<p align="center">
+					<input type="submit" name="submit" id="submit" value="Log-in"
+						class="btnStyle" onclick="return isValidAdmin()" />
+				</p>
+			</form>
+		</div>
+		<div id="loginBoxForUser">
+			<h1 align="center">
+				Go For Website Tour <a href="index.html" onclick="setUser()"><img
+					src="../image/arrow.png" width="80px" height="30px" /></a>
+			</h1>
+		</div>
+
+
+	</div>
+
+</body>
+</html>
