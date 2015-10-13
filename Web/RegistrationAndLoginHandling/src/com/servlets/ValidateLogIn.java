@@ -1,3 +1,5 @@
+package com.servlets;
+
 import java.io.IOException;
 import java.net.URLEncoder;
 
@@ -7,17 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.DatabaseHelper.UserTableQuery;
+import com.Model.User;
+
 /**
- * Servlet implementation class ValidateForm
+ * Servlet implementation class ValidateLogIn
  */
-@WebServlet("/ValidateForm")
-public class ValidateForm extends HttpServlet {
+@WebServlet("/ValidateLogIn")
+public class ValidateLogIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ValidateForm() {
+	public ValidateLogIn() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -29,41 +34,40 @@ public class ValidateForm extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		// getting all name field values from request
-
-		String name = request.getParameter("name");
+		// getting the values from request
+		String userid = request.getParameter("userid");
 		String password = request.getParameter("pwd");
-		String confirmPassword = request.getParameter("cpwd");
-		int flag = 0;
 		String message = "";
-		// check for empty name field
-		if (name.length() == 0) {
+
+		int flag = 0;
+		if (userid.length() == 0) {
 			flag = 1;
-			message = "Username field Empty";
+			message = "User Name field Empty";
 		}
 		// check for empty password field
 		else if (password.length() == 0) {
 			flag = 1;
 			message = "Password field Empty";
 		}
-		// check for empty confirm password field
-		else if (confirmPassword.length() == 0) {
-			flag = 1;
-			message = "Confirm Password field Empty";
-		}
-		// check for equality of password and confirm password
-		else if (!password.equals(confirmPassword)) {
-			flag = 1;
-			message = "Password doesn't match";
-		}
 		if (flag == 1) {
-			// redirecting the response to index page
-			response.sendRedirect("index.jsp?message="
+			// redirecting the response to log in page
+			response.sendRedirect("login.jsp?message="
 					+ URLEncoder.encode(message, "UTF-8"));
 		} else {
-			// redirecting the response to home page
-			response.sendRedirect("home.jsp");
+
+			User user = new User();
+			user.setUserid(userid);
+			user.setPassword(password);
+			// checking for valid user login
+			if (UserTableQuery.isValidUser(user)) {
+
+				response.sendRedirect("profile.jsp");
+
+			} else {
+				response.sendRedirect("login.jsp?message="
+						+ URLEncoder.encode("Invalid Username or Password",
+								"UTF-8"));
+			}
 		}
 
 	}

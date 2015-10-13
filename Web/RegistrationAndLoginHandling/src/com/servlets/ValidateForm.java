@@ -1,3 +1,5 @@
+package com.servlets;
+
 import java.io.IOException;
 import java.net.URLEncoder;
 
@@ -10,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ValidateForm
  */
-@WebServlet("/ValidateForm")
+
 public class ValidateForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,44 +32,55 @@ public class ValidateForm extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		
-		//getting all name field values from request
-		
+		// getting all name field values from request
+	
 		String name = request.getParameter("name");
+		String userid = request.getParameter("userid");
+		String email = request.getParameter("email");
 		String password = request.getParameter("pwd");
 		String confirmPassword = request.getParameter("cpwd");
 		
 		int flag = 0;
-		
 		String message = "";
-		//check for empty name field
+		// check for empty name field
 		if (name.length() == 0) {
 			flag = 1;
-			message = "Username field Empty";
-		} 
-		//check for empty password field
-		 else if (password.length() == 0) {
+			message = "Name field Empty";
+		}
+		// check for empty email field
+		else if (email.length() == 0) {
+			flag = 1;
+			message = "Email field Empty";
+		}
+		// check for empty userid field
+		else if (userid.length() == 0) {
+			flag = 1;
+			message = "User Name field Empty";
+		}
+		// check for empty password field
+		else if (password.length() == 0) {
 			flag = 1;
 			message = "Password field Empty";
-		} 
-		 //check for empty confirm password field
-		 else if (confirmPassword.length() == 0) {
+		}
+		// check for empty confirm password field
+		else if (confirmPassword.length() == 0) {
 			flag = 1;
 			message = "Confirm Password field Empty";
-		} 
-		 // check for equality of password and confirm password
-		 else if (!password.equals(confirmPassword)) {
+		}
+		// check for equality of password and confirm password
+		else if (!password.equals(confirmPassword)) {
 			flag = 1;
 			message = "Password doesn't match";
 		}
-		
 		if (flag == 1) {
-			request.setAttribute("result", message);
-			//dispatching the request to another servlet
-			request.getRequestDispatcher("RedirectedValidate").forward(request,
-					response);
+			// redirecting the response to index page
+			response.sendRedirect("index.jsp?message="
+					+ URLEncoder.encode(message, "UTF-8"));
 		} else {
-			response.sendRedirect("home.jsp");
+			
+			// redirecting the request to InsertIntoDatabase servlet
+			request.getRequestDispatcher("InsertIntoDatabase").forward(request,
+					response);
 		}
 
 	}

@@ -14,8 +14,16 @@
 
 			<table align="center">
 				<tr>
-					<td>User Name:</td>
+					<td>Full Name:</td>
 					<td><input type="text" name="name" /></td>
+				</tr>
+				<tr>
+					<td>Email Id:</td>
+					<td><input type="email" name="email" /></td>
+				</tr>
+				<tr>
+					<td>User Name:</td>
+					<td><input type="text" name="userid" /></td>
 				</tr>
 				<tr>
 					<td>Password:</td>
