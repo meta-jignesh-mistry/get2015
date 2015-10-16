@@ -1,27 +1,29 @@
-package com.servlets;
+
+package com.controller;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.helper.EmployeeHelper;
-import com.model.Employee;
+import com.helper.EmployeeMain;
+import com.models.Employee;
 
 /**
- * Servlet implementation class DoPrepareForm
+ * Servlet implementation class RegistrationController
  */
 
-public class DoPrepareForm extends HttpServlet {
+public class EmployeeListPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DoPrepareForm() {
+	public EmployeeListPageController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,16 +35,11 @@ public class DoPrepareForm extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		int id = Integer.parseInt(request.getParameter("id"));
-		 if (id != -1) {             
-			Employee employee = EmployeeHelper.getEmployee(id);
-			request.setAttribute("employee", employee);
-			 request.setAttribute("id", id);
-
-		}
-       
-		request.getRequestDispatcher("jsp/formPage.jsp").forward(request,
+		Map<Integer, Employee> employeesList = new ConcurrentHashMap<Integer, Employee>();
+		
+		employeesList = EmployeeMain.getAllEmployees();
+		request.setAttribute("employeesList", employeesList);
+		request.getRequestDispatcher("/EmployeeListPage.jsp").forward(request,
 				response);
 
 	}
@@ -54,8 +51,6 @@ public class DoPrepareForm extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-
 	}
 
 }
