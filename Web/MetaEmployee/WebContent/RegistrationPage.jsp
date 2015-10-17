@@ -11,7 +11,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <!-- HTML page title -->
-<title>Registration</title>
+<title>Employee Form</title>
 <!-- link of RegistrationStyle.css file -->
 <link rel="styleSheet" type="text/css" href="css/RegistrationPageStyle.css ">
 </head>
@@ -49,7 +49,7 @@
 	<section>
 
 		<!-- HTML header -->
-		<h1>Registration Form</h1>
+		<h1>Employee Form</h1>
 
 		<form action="/MVC_Session-1/Validation?employeeId=<%=employeeId%>" method="Post">
 			<!-- Table For Data To Symmetric -->
