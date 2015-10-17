@@ -6,17 +6,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="styleSheet" type="text/css" href="css/LandingPageStyle.css"></link>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Employee Details</title>
 </head>
 
 <body>
-
+<h1 align="center">Employee Details</h1>
+<hr>
 	<%
     Employee employee = (Employee)request.getAttribute("employee");
     
 	%>
-	<table align="center">
+	<table align="center" class="tablestyle">
 	
 	
 	
