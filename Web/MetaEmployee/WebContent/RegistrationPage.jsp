@@ -50,7 +50,7 @@
 
 		<!-- HTML header -->
 		<h1>Employee Form</h1>
-
+		<hr>
 		<form action="/MVC_Session-1/Validation?employeeId=<%=employeeId%>" method="Post">
 			<!-- Table For Data To Symmetric -->
 			<table>
