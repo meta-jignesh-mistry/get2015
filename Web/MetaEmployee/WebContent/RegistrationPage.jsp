@@ -82,7 +82,7 @@
 				</tr>
 				<!-- Date -->
 				<tr>
-					<td><span class="span">*</span>Registration Date <%=dateOfRegistration%></td>
+					<td><span class="span">*</span>Registration Date </td>
 					<td colspan="2" align="right"><input type="date" name="date"
 						value="<%= dateOfRegistration %>" required="required"></td>
 				</tr>
