@@ -21,6 +21,10 @@
 		<servlet-name>InsertIntoDatabase</servlet-name>
 		<url-pattern>/InsertIntoDatabase</url-pattern>
 	</servlet-mapping>
+	<error-page>
+	<exeption-type>java.lang.exception</exeption-type>
+	<location>/error.jsp</location>
+	</error-page>
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
