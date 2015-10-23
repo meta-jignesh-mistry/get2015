@@ -6,6 +6,7 @@
 <link href="css/style.css" rel="stylesheet" />
 </head>
 <body>
+<%@ page errorPage="error.jsp" %>
 	<h1 align="center">Log in Form</h1>
 	<div id="wrapper">
 
