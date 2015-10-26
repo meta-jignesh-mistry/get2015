@@ -1,0 +1,91 @@
+package com.carwebsite.controller;
+
+import java.io.IOException;
+import java.sql.Connection;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.carwebsite.db.ConnectionFactory;
+import com.carwebsite.db.helper.CarHelper;
+import com.carwebsite.exception.CarSystemException;
+import com.carwebsite.model.Car;
+
+
+/**
+ * Servlet implementation class Create
+ */
+@WebServlet("/Create")
+public class Create extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Create() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		Car car=createCar(request);
+		//Connection connection=null;
+		
+		
+		CarHelper carHelper = new CarHelper();
+		
+	
+			try {
+				carHelper.createCar(car);
+				RequestDispatcher requestDispatcher =
+					    request.getRequestDispatcher("index.jsp?admin=admin");
+				requestDispatcher.forward(request, response);
+				
+			} catch (CarSystemException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			System.out.println("after create ");
+	
+		
+		
+		
+		
+	}
+	
+	 private Car createCar(HttpServletRequest request){
+		 
+		 Car car = new Car();
+		 car.setMake(request.getParameter("company"));
+		 car.setModel(request.getParameter("model"));
+		 car.setEngineInCc(Integer.parseInt(request.getParameter("engine")));
+		 car.setFuelCapacity(Integer.parseInt(request.getParameter("fuel")));
+		 car.setMilage(Integer.parseInt(request.getParameter("milage")));
+		 car.setPrice(Integer.parseInt(request.getParameter("showroomprice")));
+		 car.setRoadTax(Integer.parseInt(request.getParameter("roadtax")));
+		 car.setOnRoadPrice(Integer.parseInt(request.getParameter("roadprice")));
+		 car.setAc(request.getParameter("ac"));
+		 car.setAccessoriesKit(request.getParameter("accessorieskit"));
+		 car.setPowerSteering(request.getParameter("powersteering"));
+		 car.setImage(request.getParameter("image"));
+		 return car;
+		 
+	 }
+
+}
