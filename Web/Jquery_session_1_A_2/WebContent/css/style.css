@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+
+#showandhide {
+	font-size: 25px;
+}
+
+.text {
+	font-family: cursive;
+	font-size: 15px;
+	color: purple;
+}
