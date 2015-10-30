@@ -1,0 +1,5 @@
+@CHARSET "ISO-8859-1";
+label {
+	border: 1px solid black;
+	background-color: yellow;
+}
