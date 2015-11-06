@@ -163,7 +163,7 @@ function loadData() {
 	contentArray.push(movie17);
 
 	//showing the table data into review page
-	var tbody = document.getElementById('mytableTbody');
+	var tbody = document.getElementById('tableTbody');
 	for (var i = 0; i < contentArray.length; i++) {
 		var tr = "<tr>";
 		tr += "<td>" + contentArray[i].Title + "</td>" + "<td>"
