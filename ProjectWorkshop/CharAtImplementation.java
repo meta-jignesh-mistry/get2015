@@ -8,7 +8,7 @@ public class CharAtImplementation{
 		this.value = new char[0];
 	}
 
-	public CharAtImplementation original) {
+	public CharAtImplementation(original) {
 		this.value = original.value;
 	}
 
