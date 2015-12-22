@@ -5,6 +5,9 @@ class Example
  static void check() throws ArithmeticException
  {
   System.out.println("Inside check function");
+  
+  //throwing the exception manually
+  
   throw new ArithmeticException("Custom Exception");
  }
 
@@ -12,6 +15,7 @@ class Example
  {
   try
   {
+   //calling the check() method
    check();
   }
   catch(ArithmeticException e)
